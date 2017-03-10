@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Rhumbix GIF</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+
+
+  <body>
+    <div>
+      {% block search_bar %}
+        <form action="{{ url_for('index') }}" id="search-form" method="get">
+            <input name="search_query" placeholder="Find GIF" type="text" value="{% if search %}{{ search }}{% endif %}">
+            <button type="submit">Go</button> 
+        </form>
+      {% endblock %}
+    </div>
+    {% block content %}
+      {% if image %}
+        <img src={{ image }}>
+      {% endif %}
+    {% endblock %}
+    </div>
+  </body>
+</html>
